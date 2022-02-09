@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build
         id: build_step
-        run: echo "Build ID= $BUILD_ID" > $FILE
+        run: echo "Build ID= $BUILD_ID" > FILE
              cat $FILE
   deploy:
     needs: build
