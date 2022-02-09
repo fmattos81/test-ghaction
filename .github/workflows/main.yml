@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     if: success()
     steps:
-      - uses: actions/checkout@v2
+#      - uses: actions/checkout@v2
       - run: cat fileName.txt
 #      - run: echo ${{ needs.build.outputs.build_id }}
 #  debug:
