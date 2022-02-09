@@ -9,19 +9,25 @@ jobs:
     outputs:
       build_id: ${{ steps.build_step.outputs.build_id }}
     steps:
+      - name: CheckOut
       - uses: actions/checkout@v2
+
       - name: Build
+      - uses: finnp/create-file-action@master
         id: build_step
-        run: |
-         echo "Build ID= $BUILD_ID" > $FILE
-         cat $FILE2
+        env:
+          FILE_NAME: "fileName.txt"
+          FILE_DATA: "file content"
+#        run: |
+#         echo "Build ID= $BUILD_ID" > $FILE
+#         cat $FILE2
   deploy:
     needs: build
     runs-on: ubuntu-latest
     if: success()
     steps:
       - uses: actions/checkout@v2
-      - run: cat $FILE
+      - run: cat fileName.txt
 #      - run: echo ${{ needs.build.outputs.build_id }}
 #  debug:
 #    needs: [build, deploy]
