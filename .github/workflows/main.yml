@@ -10,10 +10,10 @@ jobs:
       build_id: ${{ steps.build_step.outputs.build_id }}
     steps:
       - name: CheckOut
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Build
-      - uses: finnp/create-file-action@master
+        uses: finnp/create-file-action@master
         id: build_step
         env:
           FILE_NAME: "fileName.txt"
