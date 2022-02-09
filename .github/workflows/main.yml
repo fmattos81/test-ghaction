@@ -13,7 +13,7 @@ jobs:
       - name: Build
         id: build_step
         run: echo "Build ID= $BUILD_ID" > $FILE
-             cat $FILE2
+        run: cat $FILE2
   deploy:
     needs: build
     runs-on: ubuntu-latest
