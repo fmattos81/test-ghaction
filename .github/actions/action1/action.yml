@@ -13,5 +13,6 @@ jobs:
     steps:
       - name: Print the input name to STDOUT
       - uses: ./.github/actions/action1
-        run: echo ${{ inputs.username }}
+        #run: echo ${{ inputs.username }}
+        run: echo ${{ github.event.inputs.varname }}
         shell: bash
