@@ -9,7 +9,10 @@ on:
 jobs:
   continuous-delivery-development:
     name: Continuous Delivery - Development
-    if: GITHUB_REF_NAME == 'dev'
+    #if: env.GITHUB_REF_NAME == 'dev'
+    on:
+      push:
+        branches: [ dev ]
     runs-on: ubuntu-latest
     outputs:
       build_id: ${{ steps.build_step.outputs.build_id }}
@@ -28,7 +31,7 @@ jobs:
 
   cd-staging: 
     name: Staging (Lighter) CD
-    if: GITHUB_REF_NAME == 'staging'
+    #if: GITHUB_REF_NAME == 'staging'
     runs-on: ubuntu-latest
     outputs:
       build_id: ${{ steps.build_step.outputs.build_id }}
