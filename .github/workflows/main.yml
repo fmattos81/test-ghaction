@@ -51,7 +51,10 @@ jobs:
         id: random-color-generator
 
   call-ext-flow:
-    - name: Test External Workflow
-      uses: ./.github/actions/action1
-      with: 
-      username: ${{ inputs.username }}
+    name: Test External Workflow
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: ./.github/actions/action1
+        with: 
+          username: ${{ inputs.username }}
