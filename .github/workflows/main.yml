@@ -32,8 +32,7 @@ jobs:
 
   cd-staging: 
     name: CD - Stg
-    #if: github.ref == 'refs/heads/stg'
-    if: $CURRENT_BRANCH == 'stg'
+    if: github.ref == 'refs/heads/stg'
     runs-on: ubuntu-latest
     outputs:
       build_id: ${{ steps.build_step.outputs.build_id }}
