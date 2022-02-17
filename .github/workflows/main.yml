@@ -8,7 +8,7 @@ on:
 
 jobs:
   continuous-delivery-development:
-    name: Continuous Delivery - Development
+    name: CD - Dev
     if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     outputs:
@@ -29,7 +29,7 @@ jobs:
         id: random-color-generator
 
   cd-staging: 
-    name: Staging (Lighter) CD
+    name: CD - Stg
     if: github.ref == 'refs/heads/stg'
     runs-on: ubuntu-latest
     outputs:
@@ -45,4 +45,5 @@ jobs:
 
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::red'
+        echo {{ $GITHUB_REF_NAME }}
         id: random-color-generator
