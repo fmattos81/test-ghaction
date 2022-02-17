@@ -24,8 +24,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set selected color
-        run: echo '::set-output name=SELECTED_COLOR::green'
-        run: echo {{ $GITHUB_REF_NAME }}
+        run: |
+          echo '::set-output name=SELECTED_COLOR::green'
+          echo {{ $GITHUB_REF_NAME }}
         id: random-color-generator
 
   cd-staging: 
