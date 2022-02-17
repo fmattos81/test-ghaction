@@ -5,6 +5,8 @@ on:
     branches:
       - dev
       - stg
+env:
+  CURREN_BRANCH = "$GITHUB_REF_NAME"
 
 jobs:
   continuous-delivery-development:
@@ -25,12 +27,12 @@ jobs:
         run: |
           echo '::set-output name=SELECTED_COLOR::green'
           echo $GITHUB_REF_NAME
+          echo "Current branch is:" $GITHUB_REF_NAME
         id: random-color-generator
 
   cd-staging: 
     name: CD - Stg
-    #if: github.ref == 'refs/heads/stg'
-    if: ${{ GITHUB_REF_NAME }} == 'stg'
+    if: github.ref == 'refs/heads/stg'
     runs-on: ubuntu-latest
     outputs:
       build_id: ${{ steps.build_step.outputs.build_id }}
@@ -47,4 +49,5 @@ jobs:
         run: |
           echo '::set-output name=SELECTED_COLOR::red'
           echo $GITHUB_REF_NAME
+          echo "Current branch is:" $GITHUB_REF_NAME
         id: random-color-generator
