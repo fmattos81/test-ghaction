@@ -24,12 +24,13 @@ jobs:
       - name: Set selected color
         run: |
           echo '::set-output name=SELECTED_COLOR::green'
-          echo {{ $GITHUB_REF_NAME }}
+          echo $GITHUB_REF_NAME
         id: random-color-generator
 
   cd-staging: 
     name: CD - Stg
-    if: github.ref == 'refs/heads/stg'
+    #if: github.ref == 'refs/heads/stg'
+    if: $GITHUB_REF_NAME == 'stg'
     runs-on: ubuntu-latest
     outputs:
       build_id: ${{ steps.build_step.outputs.build_id }}
@@ -45,5 +46,5 @@ jobs:
       - name: Set selected color
         run: |
           echo '::set-output name=SELECTED_COLOR::red'
-          echo {{ $GITHUB_REF_NAME }}
+          echo $GITHUB_REF_NAME
         id: random-color-generator
