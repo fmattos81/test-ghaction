@@ -9,7 +9,7 @@ on:
 jobs:
   continuous-delivery-development:
     name: Continuous Delivery - Development
-    #if: env.GITHUB_REF_NAME == 'dev'
+    if: {{ $GITHUB_REF_NAME }} == 'dev'
     #if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     outputs:
