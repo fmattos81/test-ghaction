@@ -5,8 +5,6 @@ on:
     branches:
       - dev
       - stg
-env:
-  CURRENT_BRANCH: "$GITHUB_REF_NAME"
 
 jobs:
   continuous-delivery-development:
@@ -51,3 +49,9 @@ jobs:
           echo $GITHUB_REF_NAME
           echo "Current branch is:" $GITHUB_REF_NAME
         id: random-color-generator
+
+     - name: Test External Workflow
+       uses: actions/checkout@v2
+     - uses: called_wrkflw
+       with: 
+        name: STG-TEST
