@@ -6,6 +6,7 @@ on:
       username:
         required: true
         type: string
+        default: 'empty'
         
 jobs:
   print-username:
