@@ -50,8 +50,8 @@ jobs:
           echo "Current branch is:" $GITHUB_REF_NAME
         id: random-color-generator
 
-      - name: Test External Workflow
-        uses: actions/checkout@v2
+      #- name: Test External Workflow
+      #  uses: actions/checkout@v2
 
       - uses: ./.github/actions/action1
         with: 
