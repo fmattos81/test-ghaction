@@ -53,6 +53,6 @@ jobs:
       - name: Test External Workflow
         uses: actions/checkout@v2
 
-      - uses: called_wrkflw
+      - uses: ./called_wrkflw
         with: 
           username: STG-TEST
