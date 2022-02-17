@@ -50,7 +50,7 @@ jobs:
           echo "Current branch is:" $GITHUB_REF_NAME
         id: random-color-generator
 
-  Call external flow:
+  call-ext-flow:
     - name: Test External Workflow
       uses: ./.github/actions/action1
       with: 
