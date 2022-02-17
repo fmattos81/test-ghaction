@@ -1,38 +1,46 @@
-name: Build and deploy
-on: push
+name: Continuous Delivery - Development
 
-env:
-  FILE: arch.txt
+on:
+  push:
+    branches:
+      - development
+      - staging
+
 jobs:
-  build:
+  continuous-delivery-development:
+    name: Continuous Delivery - Development
+    if: GITHUB_REF_NAME == 'development'
     runs-on: ubuntu-latest
     outputs:
       build_id: ${{ steps.build_step.outputs.build_id }}
+
+    defaults:
+      run:
+        shell: bash
+
     steps:
-      - name: CheckOut
+      - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Build
-        uses: finnp/create-file-action@master
-        id: build_step
-        env:
-          FILE_NAME: "fileName.txt"
-          FILE_DATA: "file content"
-#        run: |
-#         echo "Build ID= $BUILD_ID" > $FILE
-#         cat $FILE2
-  deploy:
-    needs: build
+      - name: Set selected color
+        run: echo '::set-output name=SELECTED_COLOR::green'
+        id: random-color-generator
+
+  cd-staging: 
+    name: Staging (Lighter) CD
+    if: GITHUB_REF_NAME == 'staging'
     runs-on: ubuntu-latest
-    if: success()
+    outputs:
+      build_id: ${{ steps.build_step.outputs.build_id }}
+
+    defaults:
+      run:
+        shell: bash
+
     steps:
-#      - uses: actions/checkout@v2
-      - run: cat fileName.txt
-#      - run: echo ${{ needs.build.outputs.build_id }}
-#  debug:
-#    needs: [build, deploy]
-#    runs-on: ubuntu-latest
-#    if: ${{ failure() }}
-#    steps:
-#      - uses: actions/checkout@v2
-#      - run: ./debug
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set selected color
+        run: echo '::set-output name=SELECTED_COLOR::red'
+        id: random-color-generator
