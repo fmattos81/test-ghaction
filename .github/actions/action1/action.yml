@@ -10,8 +10,8 @@ on:
 jobs:
   print-username:
     runs-on: ubuntu-latest
-
     steps:
       - name: Print the input name to STDOUT
+      - uses: ./.github/actions/action1
         run: echo Hello ${{ inputs.username }}
         shell: bash
