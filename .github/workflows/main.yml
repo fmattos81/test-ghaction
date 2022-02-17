@@ -52,7 +52,7 @@ jobs:
 
   call-ext-flow:
     name: Test External Workflow
-    #runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     
     steps:
       - name: Checkout
