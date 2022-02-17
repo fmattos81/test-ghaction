@@ -6,7 +6,7 @@ on:
       - dev
       - stg
 env:
-  CURREN_BRANCH = "$GITHUB_REF_NAME"
+  CURRENT_BRANCH: "$GITHUB_REF_NAME"
 
 jobs:
   continuous-delivery-development:
