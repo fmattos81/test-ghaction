@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       build_id: ${{ steps.build_step.outputs.build_id }}
-
     defaults:
       run:
         shell: bash
