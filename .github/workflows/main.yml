@@ -52,12 +52,12 @@ jobs:
 
   call-ext-flow:
     name: Test External Workflow
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
     
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
+
       - uses: ./.github/actions/action1
         with: 
-          username: ${{ inputs.username }}
+          username: stg
