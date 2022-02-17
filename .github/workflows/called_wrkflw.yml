@@ -6,7 +6,11 @@ on:
       username:
         required: true
         type: string
+        
+jobs:
+  print-username:
+    runs-on: ubuntu-latest
 
-runs:
- steps: 
-   - run: echo Hello ${{ inputs.name }}.
+    steps:
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.username }}

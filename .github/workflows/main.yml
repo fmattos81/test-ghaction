@@ -55,4 +55,4 @@ jobs:
 
      - uses: called_wrkflw
        with: 
-         name: STG-TEST
+         username: STG-TEST
