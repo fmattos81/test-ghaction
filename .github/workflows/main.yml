@@ -52,6 +52,7 @@ jobs:
 
   call-ext-flow:
     name: Test External Workflow
+    if: github.ref == 'refs/heads/NORUN'
     runs-on: ubuntu-latest
     
     steps:
