@@ -3,13 +3,13 @@ name: Continuous Delivery - Development
 on:
   push:
     branches:
-      - development
+      - dev
       - staging
 
 jobs:
   continuous-delivery-development:
     name: Continuous Delivery - Development
-    if: GITHUB_REF_NAME == 'development'
+    if: GITHUB_REF_NAME == 'dev'
     runs-on: ubuntu-latest
     outputs:
       build_id: ${{ steps.build_step.outputs.build_id }}
