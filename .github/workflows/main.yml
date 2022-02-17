@@ -11,9 +11,6 @@ jobs:
     name: Continuous Delivery - Development
     #if: env.GITHUB_REF_NAME == 'dev'
     if: github.ref == 'refs/heads/dev'
-    on:
-      push:
-        branches: [ dev ]
     runs-on: ubuntu-latest
     outputs:
       build_id: ${{ steps.build_step.outputs.build_id }}
