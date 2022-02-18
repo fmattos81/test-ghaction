@@ -50,15 +50,13 @@ jobs:
           echo "Current branch is:" $GITHUB_REF_NAME
         id: random-color-generator
 
-  call-ext-flow:
-    name: Test External Workflow
-    #if: github.ref == 'refs/heads/NORUN'
-    runs-on: ubuntu-latest
-    
+  run-local-action:
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - uses: ./.github/actions/action1
-        with: 
-          username: stg
+      # Checkout the repository first
+      # Otherwise the workflow won't be able to find the action
+    - use: actions/checkout@v2
+    - name: Run custom action
+      # Use the location in the repository (without action.yml)
+      uses: ./.github/actions/action1
+      with:
+        custom-input: 10
