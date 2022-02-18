@@ -10,7 +10,7 @@ runs:
   using: "composite"
   steps:
     - name: Show current branch
-      run: echo $CURRENTBRANCH
+      run: echo "Current branch is:" ${{env.CURRENTBRANCH}}
       #run: echo "The current branch is: " ${{ env.CURRENTBRANCH }}
       shell: bash
       env:
