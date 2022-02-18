@@ -1,16 +1,16 @@
 name: "Reusable workflow example"
 description: "Testing reusable workflows"
 inputs:
-  username:
+  branchname:
     required: false
-    description: "A username passed from the caller workflow"
+    description: "Show current branch"
     default: none
 
 runs:
   using: "composite"
   steps:
-    - name: Test composite
-      run: echo $USERNAME
+    - name: Show current branch
+      run: echo "The current branch is:" $CURRENTBRANCH
       shell: bash
       env:
-        USERNAME: ${{ inputs.username }}
+        CURRENTBRANCH: ${{ inputs.branchname }}
