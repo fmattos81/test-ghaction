@@ -16,11 +16,9 @@ jobs:
     defaults:
       run:
         shell: bash
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Set selected color
         run: |
           echo '::set-output name=SELECTED_COLOR::green'
@@ -32,13 +30,9 @@ jobs:
     name: CD - Stg
     if: github.ref == 'refs/heads/stga'
     runs-on: ubuntu-latest
-    outputs:
-      build_id: ${{ steps.build_step.outputs.build_id }}
-
     defaults:
       run:
         shell: bash
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -51,6 +45,8 @@ jobs:
         id: random-color-generator
 
   run-local-action:
+    name: "Run local action"
+    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
