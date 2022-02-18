@@ -55,11 +55,12 @@ jobs:
       run:
         shell: bash
     steps:
-      # Checkout the repository first
-      # Otherwise the workflow won't be able to find the action
-    - use: actions/checkout@v2
-    - name: Run custom action
-      # Use the location in the repository (without action.yml)
-      use: ./.github/actions/action1
-      with:
-        username: stg
+        # Checkout the repository first
+        # Otherwise the workflow won't be able to find the action
+      - name: Checkout
+        use: actions/checkout@v2
+      - name: Run custom action
+        # Use the location in the repository (without action.yml)
+        use: ./.github/actions/action1
+          with:
+          username: stg
