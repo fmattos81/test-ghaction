@@ -55,9 +55,8 @@ jobs:
         # Otherwise the workflow won't be able to find the action
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Run custom action
         # Use the location in the repository (without action.yml)
         uses: ./.github/actions/action1
           with:
-          username: stg
+            username: stg
