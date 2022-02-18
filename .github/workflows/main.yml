@@ -54,9 +54,11 @@ jobs:
         # Checkout the repository first
         # Otherwise the workflow won't be able to find the action
       - uses: actions/checkout@v2
-
+      - name: Get branch name
+        shell: bash
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
       - name: Run custom action
         # Use the location in the repository (without action.yml)
         uses: ./.github/actions/action1
         with:
-          branchname: ${{ env.GITHUB_REF_NAME }}
+          branchname: ${{ env.BRANCH_NAME }}
