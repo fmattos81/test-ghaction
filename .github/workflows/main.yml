@@ -59,4 +59,4 @@ jobs:
         # Use the location in the repository (without action.yml)
         uses: ./.github/actions/action1
         with:
-          branchname: ${{ GITHUB_REF_NAME }}
+          branchname: $GITHUB_REF_NAME
