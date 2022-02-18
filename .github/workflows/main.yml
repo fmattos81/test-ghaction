@@ -61,4 +61,4 @@ jobs:
         # Use the location in the repository (without action.yml)
         uses: ./.github/actions/action1
         with:
-          branchname: $CURR_BRANCH
+          branchname: "$CURR_BRANCH"
