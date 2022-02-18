@@ -11,5 +11,6 @@ runs:
   steps:
     - name: Test composite
       run: echo $USERNAME
+      shell: bash
       env:
         USERNAME: ${{ inputs.username }}
