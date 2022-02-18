@@ -57,6 +57,6 @@ jobs:
     - use: actions/checkout@v2
     - name: Run custom action
       # Use the location in the repository (without action.yml)
-      uses: ./.github/actions/action1
+      use: ./.github/actions/action1
       with:
-        custom-input: 10
+        username: stg
